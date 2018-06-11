@@ -10,9 +10,11 @@
 #include "request.hpp"
 #include "Log.h"
 #include <boost/any.hpp>
+#include <boost/noncopyable.hpp>
 
 class Buffer;
-class TcpConnection : public std::enable_shared_from_this<TcpConnection> {
+class TcpConnection :  public boost::noncopyable,
+        public std::enable_shared_from_this<TcpConnection> {
 public:
     typedef std::shared_ptr<Buffer> Bufferptr;
     typedef std::shared_ptr<boost::asio::ip::tcp::socket> Socketptr;

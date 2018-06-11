@@ -1,0 +1,3 @@
+/Users/sidaliang/code/HttpServer/mini/source/CMakeFiles/rebuild_cache.dir
+/Users/sidaliang/code/HttpServer/mini/source/CMakeFiles/edit_cache.dir
+/Users/sidaliang/code/HttpServer/mini/source/CMakeFiles/mini.dir
