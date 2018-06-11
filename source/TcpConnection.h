@@ -111,6 +111,9 @@ void TcpConnection::async_write(Func &&f, TcpConnection::Bufferptr buf) {
 
 }
 
+
+//所有兼容boost::buffer()
+//和vector<buffer>
 template <typename Func,typename Buffers>
 void TcpConnection::async_write(Func&& f,Buffers&& buf) {
     auto connptr = shared_from_this();
