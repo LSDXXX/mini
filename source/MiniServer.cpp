@@ -69,7 +69,7 @@ void HttpServer::http_requestcallback(HttpServer::Parserptr parser,
          * to do handle bad
          */
         auto rep = http::server::reply::stock_reply(http::server::reply::status_type::bad_request);
-        connptr->async_write(on_writecompletecallback,rep.to_buffers());
+        connptr->async_write([](Connectionptr){},rep.to_buffers());
         connptr->set_context(std::move(rep));
         BOOST_LOG_TRIVIAL(warning) << "[warnning]" << "Http request state : Bad by " <<
                                 connptr->get_socket()->remote_endpoint().address();

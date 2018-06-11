@@ -88,7 +88,6 @@ void TcpConnection::async_read(Func &&f) {
 
 template <typename Func>
 void TcpConnection::async_write(Func &&f, TcpConnection::Bufferptr buf) {
-
      auto connptr = shared_from_this();
      std::function<void(typename std::remove_reference<Func>::type& f,const boost::system::error_code&)>
              write_callback = [&write_callback,connptr,buf](Func& f,
@@ -101,8 +100,7 @@ void TcpConnection::async_write(Func &&f, TcpConnection::Bufferptr buf) {
         buf->commit(static_cast<int>(nwrite));
         auto temp_sockptr = connptr->get_socket();
         if(!buf->readable()) {
-            if(f)
-                f(connptr);
+            f(connptr);
         } else {
             temp_sockptr->async_write_some(boost::asio::buffer(buf->get_data() + buf->get_read_pos(),
             buf->readable()),std::bind(write_callback,std::move(f)));
@@ -119,7 +117,7 @@ void TcpConnection::async_write(Func&& f,Buffers&& buf) {
     auto call_back = [connptr](typename std::remove_reference<Func>::type& f,
             const boost::system::error_code& e,size_t n) {
         if(!e)
-                f(connptr);
+            f(connptr);
     };
     boost::asio::async_write(*sockptr_,std::forward<Buffers>(buf),std::bind(call_back,std::forward<Func>(f),std::placeholders::_1,
     std::placeholders::_2));

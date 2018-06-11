@@ -22,10 +22,13 @@ CMakeFiles/mini.dir/TcpConnection.cpp.o
  /Users/sidaliang/code/HttpServer/mini/source/header.hpp
  /Users/sidaliang/code/HttpServer/mini/source/request.hpp
 CMakeFiles/mini.dir/main.cpp.o
+ /Users/sidaliang/code/HttpServer/mini/source/Buffer.hpp
  /Users/sidaliang/code/HttpServer/mini/source/Log.h
  /Users/sidaliang/code/HttpServer/mini/source/MiniServer.h
+ /Users/sidaliang/code/HttpServer/mini/source/TcpConnection.h
  /Users/sidaliang/code/HttpServer/mini/source/header.hpp
  /Users/sidaliang/code/HttpServer/mini/source/main.cpp
+ /Users/sidaliang/code/HttpServer/mini/source/reply.hpp
  /Users/sidaliang/code/HttpServer/mini/source/request.hpp
  /Users/sidaliang/code/HttpServer/mini/source/request_parser.hpp
 CMakeFiles/mini.dir/reply.cpp.o

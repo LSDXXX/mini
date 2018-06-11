@@ -21,10 +21,13 @@ CMakeFiles/mini.dir/TcpConnection.cpp.o: TcpConnection.h
 CMakeFiles/mini.dir/TcpConnection.cpp.o: header.hpp
 CMakeFiles/mini.dir/TcpConnection.cpp.o: request.hpp
 
+CMakeFiles/mini.dir/main.cpp.o: Buffer.hpp
 CMakeFiles/mini.dir/main.cpp.o: Log.h
 CMakeFiles/mini.dir/main.cpp.o: MiniServer.h
+CMakeFiles/mini.dir/main.cpp.o: TcpConnection.h
 CMakeFiles/mini.dir/main.cpp.o: header.hpp
 CMakeFiles/mini.dir/main.cpp.o: main.cpp
+CMakeFiles/mini.dir/main.cpp.o: reply.hpp
 CMakeFiles/mini.dir/main.cpp.o: request.hpp
 CMakeFiles/mini.dir/main.cpp.o: request_parser.hpp
 
