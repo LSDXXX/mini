@@ -32,6 +32,10 @@ public:
             BOOST_LOG_TRIVIAL(debug) << "[debug]" << "soket isn't open";
         }
     }
+
+    /*
+     * void handler(std::shared_ptr<TcpConnection> connptr);
+     */
     template <typename Func>
     Func set_connectcallback(Func&& f) {
         auto temp = on_connectcallback;
@@ -39,6 +43,11 @@ public:
         return temp;
     }
 
+    /*
+     * void handler(std::shared_ptr<TcpConnection> connptr,
+     *              std::shared_ptr<Request> req,
+     *              boost::string_view str);
+     */
     template <typename Func>
     Func set_readcallback(Func&& f) {
         auto temp = on_readcompletecallback;
@@ -46,6 +55,9 @@ public:
         return temp;
     }
 
+    /*
+     * void handler(std::shared_ptr<TcpConnection> connptr);
+     */
     template <typename Func>
     Func set_writecallback(Func&& f) {
         auto temp = on_writecompletecallback;
@@ -65,7 +77,7 @@ private:
             std::size_t n);
     std::function<void(Connectionptr)> on_connectcallback;
     std::function<void(Connectionptr)> on_writecompletecallback;
-    std::function<void(Requestptr,Connectionptr,boost::string_view)> on_readcompletecallback;
+    std::function<void(Connectionptr,Requestptr,boost::string_view)> on_readcompletecallback;
     boost::asio::ip::tcp::acceptor acc_;
     std::atomic<bool> start_;
 };

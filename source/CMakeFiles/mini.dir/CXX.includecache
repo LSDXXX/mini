@@ -95,6 +95,8 @@ Log.h
 /Users/sidaliang/code/HttpServer/mini/source/Log.h
 boost/any.hpp
 -
+boost/noncopyable.hpp
+-
 
 /Users/sidaliang/code/HttpServer/mini/source/header.hpp
 string

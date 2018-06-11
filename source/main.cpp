@@ -13,7 +13,6 @@
 using namespace boost::asio;
 int main() {
     LOG_INIT("log.test");
-    BOOST_LOG_TRIVIAL(debug) << " 1232323";
     io_service service;
     HttpServer server(service,12345);
     server.start();

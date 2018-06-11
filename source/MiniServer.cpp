@@ -87,7 +87,7 @@ void HttpServer::http_datacallback(int nlen,HttpServer::Requestptr req, HttpServ
         BOOST_LOG_TRIVIAL(debug) << "[debug]" << "http data ：" << buf->get_all();
         if (on_readcompletecallback) {
             boost::string_view temp(buf->get_data() + buf->get_read_pos(),nlen);
-            on_readcompletecallback(req, connptr,temp);
+            on_readcompletecallback(connptr,req,temp);
         }
     } else {
         connptr->async_read(std::bind(&HttpServer::http_datacallback, this,
