@@ -15,6 +15,7 @@ struct reply
   /// The status of the reply.
   enum status_type
   {
+    hello = 199,
     ok = 200,
     created = 201,
     accepted = 202,

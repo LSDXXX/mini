@@ -58,7 +58,8 @@ void HttpServer::http_requestcallback(HttpServer::Parserptr parser,
             return h.name == "Content-Length";
         });
         if(it == headers.end()) {
-
+            if(on_readcompletecallback)
+                on_readcompletecallback(connptr,req,boost::string_view());
         } else {
             int len = std::stoi(it->value);
             http_datacallback(len,req,connptr,buf,s);

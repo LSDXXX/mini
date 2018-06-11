@@ -119,7 +119,6 @@ void TcpConnection::async_write(Func&& f,Buffers&& buf) {
     auto call_back = [connptr](typename std::remove_reference<Func>::type& f,
             const boost::system::error_code& e,size_t n) {
         if(!e)
-            if(f)
                 f(connptr);
     };
     boost::asio::async_write(*sockptr_,std::forward<Buffers>(buf),std::bind(call_back,std::forward<Func>(f),std::placeholders::_1,

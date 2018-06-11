@@ -37,7 +37,7 @@ public:
      * void handler(std::shared_ptr<TcpConnection> connptr);
      */
     template <typename Func>
-    Func set_connectcallback(Func&& f) {
+    typename std::remove_reference<Func>::type set_connectcallback(Func&& f) {
         auto temp = on_connectcallback;
         on_connectcallback = std::forward<Func>(f);
         return temp;
@@ -49,7 +49,7 @@ public:
      *              boost::string_view str);
      */
     template <typename Func>
-    Func set_readcallback(Func&& f) {
+    typename std::remove_reference<Func>::type set_readcallback(Func&& f) {
         auto temp = on_readcompletecallback;
         on_readcompletecallback = std::forward<Func>(f);
         return temp;
@@ -59,7 +59,7 @@ public:
      * void handler(std::shared_ptr<TcpConnection> connptr);
      */
     template <typename Func>
-    Func set_writecallback(Func&& f) {
+    typename std::remove_reference<Func>::type set_writecallback(Func&& f) {
         auto temp = on_writecompletecallback;
         on_writecompletecallback = std::forward<Func>(f);
         return temp;

@@ -45,7 +45,8 @@ boost::asio::const_buffer to_buffer(reply::status_type status)
   switch (status)
   {
   case reply::ok:
-    return boost::asio::buffer(ok);
+  case reply::hello:
+      return boost::asio::buffer(ok);
   case reply::created:
     return boost::asio::buffer(created);
   case reply::accepted:
@@ -122,9 +123,9 @@ const char accepted[] =
   "</html>";
 const char no_content[] =
   "<html>"
-  "<head><title>No Content</title></head>"
-  "<body><h1>204 Content</h1></body>"
-  "</html>";
+    "<head><title>No Content</title></head>"
+    "<body><h1>204 Content</h1></body>"
+    "</html>";
 const char multiple_choices[] =
   "<html>"
   "<head><title>Multiple Choices</title></head>"
@@ -185,11 +186,19 @@ const char service_unavailable[] =
   "<head><title>Service Unavailable</title></head>"
   "<body><h1>503 Service Unavailable</h1></body>"
   "</html>";
+const char client_hello[] =
+        "<html>"
+        "<head><title>Hello</title></head>"
+        "<body><h1>Client Hello</h1></body>"
+        "</html>";
+
 
 std::string to_string(reply::status_type status)
 {
   switch (status)
   {
+      case reply::hello:
+          return client_hello;
   case reply::ok:
     return ok;
   case reply::created:
