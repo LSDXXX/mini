@@ -19,7 +19,7 @@ public:
     typedef std::shared_ptr<Buffer> Bufferptr;
     typedef std::shared_ptr<boost::asio::ip::tcp::socket> Socketptr;
     typedef std::shared_ptr<TcpConnection> Connectionptr;
-    TcpConnection(boost::asio::io_service& s)
+    explicit TcpConnection(boost::asio::io_service& s)
             :sockptr_(std::make_shared<boost::asio::ip::tcp::socket>
                                (s)),
              buffer_(std::make_shared<Buffer>()){
